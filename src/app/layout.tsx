@@ -1,4 +1,7 @@
-import './globals.css'
+import GlobalStyle from '../styles/global'
+import Navbar from '../components/navbar'
+import Footer from '../components/footer'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -16,7 +19,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <GlobalStyle/>
+      <div className="main">
+        {/* <Navbar /> */}
+        <div className="container">
+          <div className="menuContainer">
+            {/* <Menu /> */}
+          </div>
+          {/* <div className="contentContainer">
+            <QueryClientProvider client={queryClient}>
+              <Outlet />
+            </QueryClientProvider>
+          </div> */}
+        </div>
+        <Footer />
+      </div>
+      <body className={inter.className}>
+      <Navbar />
+        {children}
+      </body>
     </html>
   )
 }

@@ -1,95 +1,80 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import TopBox from '../components/topBox'
+import ChartBox from '../components/chartBox'
+import PieChartBox from '@/components/pieCartBox'
+import BigChartBox from '@/components/bigChartBox'
+import BarChartBox from '../components/barChartBox'
+import Menu from '../components/menu'
+
+import {
+  barChartBoxRevenue,
+  barChartBoxVisit,
+  chartBoxConversion,
+  chartBoxProduct,
+  chartBoxRevenue,
+  chartBoxUser,
+} from '../data';
+
+import { 
+  Container,
+  Contents,
+  MenuContainer,
+  ContentsAsside,
+  HomeContainer, 
+  Box,
+  Box1,
+  Box2, 
+  Box3, 
+  Box4, 
+  Box5, 
+  Box6, 
+  Box7, 
+  Box8, 
+  Box9, 
+} from '../styles/home'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <Container>
+      <Contents>
+        <div className='menuBar'>
+          <MenuContainer>
+            <Menu />
+          </MenuContainer>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <ContentsAsside>
+          <HomeContainer>
+            <Box1>
+              <TopBox/>
+            </Box1>
+            <Box2>
+              <ChartBox {...chartBoxUser}/>
+            </Box2>
+            <Box3>
+              <ChartBox {...chartBoxProduct}/>
+            </Box3>
+            <Box4>
+              <PieChartBox />
+            </Box4>
+            <Box5>
+              <ChartBox {...chartBoxConversion} />
+            </Box5>
+            <Box6>
+              <ChartBox {...chartBoxRevenue} />
+            </Box6>
+            <Box7>
+              <BigChartBox />
+            </Box7>
+            <Box8>
+              <BarChartBox {...barChartBoxVisit}/>
+            </Box8>
+            <Box9>
+              <BarChartBox {...barChartBoxRevenue}/>
+            </Box9>
+          </HomeContainer>
+        </ContentsAsside>
+      </Contents>
+    </Container>
   )
 }
