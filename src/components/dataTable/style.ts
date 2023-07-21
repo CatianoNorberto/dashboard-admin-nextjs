@@ -1,5 +1,6 @@
-.dataTable{
+import styled from "styled-components";
 
+export const DataTableContainer = styled.div`
   .dataGrid{
     background: white;
     padding: 20px;
@@ -9,8 +10,6 @@
     }
 
     img{
-      width: 32px;
-      height: 32px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -26,4 +25,4 @@
       }
     }
   }
-}
+`

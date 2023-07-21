@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { lg, sm, xxl } from '../../styles/responsiveStyles';
 
 export const TopBoxContainer = styled.div`
+  height: 100%;
   h1 {
     margin-bottom: 20px;
 

@@ -3,7 +3,7 @@
 import { createGlobalStyle } from "styled-components";
 
 import { colors } from './color'
-import './responsiveStyles'
+import { lg } from '../styles/responsiveStyles';
 
 export default createGlobalStyle`
   *{
@@ -23,24 +23,27 @@ export default createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-
-.container {
-  display: flex;
-}
-
-.menuContainer {
-  width: 200px;
-  padding: 5px 20px;
-  border-right: 2px solid $soft-bg;
-
-  @include lg{
-    width: max-content;
+  .main {
+    width: 100%;
+    height: 100%;
   }
-}
 
-.contentContainer {
-  padding: 5px 20px;
-  width: 85%;
-}
+  .container {
+    display: flex;
+  }
 
+  .menuContainer {
+    width: 200px;
+    padding: 5px 20px;
+    border-right: 2px solid ${colors.softBg};
+
+    ${lg`
+      width: max-content;
+    `}
+  }
+
+  .contentContainer {
+    padding: 5px 20px;
+    width: 85%;
+  }
 `

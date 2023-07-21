@@ -3,31 +3,6 @@ import styled from 'styled-components';
 import { colors } from '../styles/color'
 import { sm, md, lg, xl } from '../styles/responsiveStyles';
 
-export const Container = styled.div`
-  width: 100%;
-  height: 100%;
-`
-
-export const Contents = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-export const MenuContainer = styled.div`
-  width: 200px;
-  padding: 5px 20px;
-  border-right: 2px solid ${colors.softBg};
-  
-  ${lg`
-    width: max-content;
-  `}
-`
-
-
-export const ContentsAsside = styled.div`
-  padding: 5px 20px;
-  width: 85%;
-`
 export const HomeContainer = styled.div`
   display: grid;
   gap: 20px;

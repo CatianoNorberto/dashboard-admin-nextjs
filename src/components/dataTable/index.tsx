@@ -1,10 +1,16 @@
+import Link from "next/link";
+import Image from "next/image";
+
 import {
   DataGrid,
   GridColDef,
   GridToolbar,
 } from "@mui/x-data-grid";
-import "./dataTable.scss";
-import { Link } from "react-router-dom";
+
+import ViewImg from '../../assets/images/view.svg'
+import DeleteImg from '../../assets/images/delete.svg'
+
+import { DataTableContainer } from './style'
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type Props = {
@@ -41,11 +47,11 @@ const DataTable = (props: Props) => {
     renderCell: (params) => {
       return (
         <div className="action">
-          <Link to={`/${props.slug}/${params.row.id}`}>
-            <img src="/view.svg" alt="" />
+          <Link href={`/${props.slug}/${params.row.id}`}>
+            <Image src={ViewImg} alt="" width={32} height={32}/>
           </Link>
           <div className="delete" onClick={() => handleDelete(params.row.id)}>
-            <img src="/delete.svg" alt="" />
+            <Image src={DeleteImg} alt="" width={32} height={32}/>
           </div>
         </div>
       );
@@ -53,7 +59,7 @@ const DataTable = (props: Props) => {
   };
 
   return (
-    <div className="dataTable">
+    <DataTableContainer className="dataTable">
       <DataGrid
         className="dataGrid"
         rows={props.rows}
@@ -79,7 +85,7 @@ const DataTable = (props: Props) => {
         disableDensitySelector
         disableColumnSelector
       />
-    </div>
+    </DataTableContainer>
   );
 };
 

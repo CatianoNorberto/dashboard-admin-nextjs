@@ -29,7 +29,7 @@ const ChartBox = (props: Props) => {
     <ChartBoxContainer>
       <BoxInfon>
         <Title>
-          <Image src={props.icon} alt="" width={20} height={20}/>
+          <Image src={props.icon} alt="" width={60} height={60}/>
           <span>{props.title}</span>
         </Title>
         <h1>{props.number}</h1>

@@ -1,3 +1,7 @@
+'use client'
+
+import Image from "next/image";
+
 import {
   Legend,
   Line,
@@ -7,7 +11,17 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import "./single.scss";
+
+import {
+  SingleContainer,
+  SingleView,
+  SingleInfo,
+  SingleTopInfo,
+  SingleDetails,
+  SingleItem,
+  SingleChart,
+  SingleActivities
+} from './style'
 
 type Props = {
   id: number;
@@ -23,26 +37,26 @@ type Props = {
 
 const Single = (props: Props) => {
   return (
-    <div className="single">
-      <div className="view">
-        <div className="info">
-          <div className="topInfo">
-            {props.img && <img src={props.img} alt="" />}
+    <SingleContainer>
+      <SingleView>
+        <SingleInfo>
+          <SingleTopInfo>
+            {props.img && <Image src={props.img} alt="" width={100} height={100}/>}
             <h1>{props.title}</h1>
             <button>Update</button>
-          </div>
-          <div className="details">
+          </SingleTopInfo>
+          <SingleDetails>
             {Object.entries(props.info).map((item) => (
-              <div className="item" key={item[0]}>
+              <SingleItem key={item[0]}>
                 <span className="itemTitle">{item[0]}</span>
                 <span className="itemValue">{item[1]}</span>
-              </div>
+              </SingleItem>
             ))}
-          </div>
-        </div>
+          </SingleDetails>
+        </SingleInfo>
         <hr />
         {props.chart && (
-          <div className="chart">
+          <SingleChart>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
                 width={500}
@@ -62,16 +76,17 @@ const Single = (props: Props) => {
                 {props.chart.dataKeys.map((dataKey) => (
                   <Line
                     type="monotone"
+                    key={dataKey.name}
                     dataKey={dataKey.name}
                     stroke={dataKey.color}
                   />
                 ))}
               </LineChart>
             </ResponsiveContainer>
-          </div>
+          </SingleChart>
         )}
-      </div>
-      <div className="activities">
+      </SingleView>
+      <SingleActivities className="activities">
         <h2>Latest Activities</h2>
         {props.activities && (
           <ul>
@@ -85,8 +100,8 @@ const Single = (props: Props) => {
             ))}
           </ul>
         )}
-      </div>
-    </div>
+      </SingleActivities>
+    </SingleContainer>
   );
 };
 
